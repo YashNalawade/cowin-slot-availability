@@ -1,4 +1,4 @@
-# cowin-slotavailability
+# cowin-slot-availability
 
 This script will search for available CoVID-19 vaccination slots on CoWIN portal after every few seconds. As soon as a slot is available script will notify using a long beep sound.
 Also sends an email if provided to be notified through an email.
