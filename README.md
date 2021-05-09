@@ -5,8 +5,8 @@ This script will search for available CoVID-19 vaccination slots on CoWIN portal
 ### Inputs:
 1. Date of Slot - This should be mandatorily in dd-mm-yyyy format
 2. Age Group - This should be either 18 or 45. Putting any other value might result in invalid data.
-3. State Name
-4. District Name
+3. State - State name for CoWin centre
+4. District - Nearest district name for CoWin centre
 
 
 ### Required Dependencies:
