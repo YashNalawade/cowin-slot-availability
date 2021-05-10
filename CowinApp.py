@@ -5,10 +5,18 @@ import time
 import json
 from datetime import datetime
 
-date = input("Please enter desired slot date (dd-mm-yyyy) eg. 01-12-2020: ")
-minAgeLimit = int(input("Please enter an age group (Either 18 or 45): "))
+date = input("Please enter desired slot date (dd-mm-yyyy) eg. 01-12-2020: \nDefault date (today's date):")
+if(len(date) != 0):
+    date = datetime.datetime.now().strftime("%d-%m-%y")
+minAgeLimit = input("Please enter an age group (Either 18 or 45): \nDefault value (18):")
+if(len(minAgeLimit) != 0):
+    minAgeLimit = 18
+
 email=input("Please enter an email address if required to be notified through an email: ")
-waitSeconds = int(input("Please enter the time to be refreshed(in seconds): "))
+waitSeconds = input("Please enter the time to be refreshed(in seconds):\nDefault value (30 sec):")
+if(len(waitSeconds) != 0):
+    waitSeconds = 30
+
 flag = 0
 stateId = 0
 districtId = 0
@@ -24,7 +32,7 @@ try:
         webDataStates = requests.request("GET", uriStates, headers=browser_header).json()
         dataCount=0
         for i in webDataStates["states"]:
-            if stateName in i["state_name"]:
+            if stateName in i["state_name"].title():
                 stateData=i
                 dataCount+=1
         if dataCount==1:
@@ -53,7 +61,7 @@ try:
         webDataDistricts = requests.request("GET", uriDistricts, headers=browser_header).json()
         dataCount=0
         for i in webDataDistricts["districts"]:
-            if districtName in i["district_name"]:
+            if districtName in i["district_name"].title():
                 districtData=i
                 dataCount+=1
                         
@@ -80,7 +88,6 @@ try:
     # Find slots
 
     while True:
-
         currentTime = datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
         uri = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id={districtId}&date={date}".format(districtId=districtId,date=date)
         webData = requests.request("GET", uri, headers=browser_header).json()
