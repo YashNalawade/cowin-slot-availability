@@ -24,7 +24,7 @@ try:
         webDataStates = requests.request("GET", uriStates, headers=browser_header).json()
         dataCount=0
         for i in webDataStates["states"]:
-            if stateName in i["state_name"]:
+            if stateName in i["state_name"].title()::
                 stateData=i
                 dataCount+=1
         if dataCount==1:
@@ -53,7 +53,7 @@ try:
         webDataDistricts = requests.request("GET", uriDistricts, headers=browser_header).json()
         dataCount=0
         for i in webDataDistricts["districts"]:
-            if districtName in i["district_name"]:
+            if districtName in i["district_name"].title()::
                 districtData=i
                 dataCount+=1
                         
