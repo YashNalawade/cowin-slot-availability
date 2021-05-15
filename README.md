@@ -1,6 +1,6 @@
 # cowin-slot-availability
 
-This script will search for available CoVID-19 vaccination slots on CoWIN portal after every few seconds. As soon as a slot is available script will notify using a long beep sound.
+This script will search for available CoVID-19 vaccination slots on CoWIN portal after every few seconds. As soon as a slot is available script will notify using a long beep sound. You can schedule an appoitment for available time slots. For getting Beneficiary ID, Mobile No. along with OTP is required.
 Also sends an email if provided to be notified through an email.
 
 ### Inputs:
@@ -9,6 +9,8 @@ Also sends an email if provided to be notified through an email.
 3. State - State name for CoWin centre
 4. District - Nearest district name for CoWin centre
 5. Email Address
+6. Mobile No(with OTP)
+7. Dose
 
 ### Cowin API
 https://documenter.getpostman.com/view/9564387/TzRPip7u
